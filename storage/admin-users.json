@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "name": "Administrator",
+        "email": "admin@mariomotors.local",
+        "passwordHash": "$2y$10$YC//Cn.CvjDCl/YF5KM4R.TxPnCFCa9VT4USi7MLCdJiPlhbO23ui",
+        "role": "admin",
+        "createdAt": "2026-04-14T00:41:22+02:00",
+        "updatedAt": "2026-04-14T00:41:22+02:00"
+    }
+]

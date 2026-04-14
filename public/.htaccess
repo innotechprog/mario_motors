@@ -1,0 +1,20 @@
+# Point Apache document root at this `public/` folder for production.
+DirectoryIndex index.php
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Existing files and directories (assets, *.php, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  # Extensionless routes -> *.php
+  RewriteRule ^(index|cars|parts|contact|car|part|not-found)$ $1.php [L,NC]
+</IfModule>

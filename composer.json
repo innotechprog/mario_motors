@@ -1,0 +1,11 @@
+{
+  "name": "mario-motors/php-site",
+  "description": "PHP storefront for Mario Motors / AutoVault",
+  "type": "project",
+  "require": {
+    "php": "^8.1"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

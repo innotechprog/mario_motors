@@ -1,0 +1,11 @@
+{
+  "name": "mario-motors-site",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./resources/css/app.css -o ./public/assets/app.css --minify",
+    "watch:css": "tailwindcss -i ./resources/css/app.css -o ./public/assets/app.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

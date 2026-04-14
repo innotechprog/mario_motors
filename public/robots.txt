@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /src/
+Disallow: /storage/
+Disallow: /views/
+Disallow: /resources/
+Disallow: /node_modules/

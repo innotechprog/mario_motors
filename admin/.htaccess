@@ -1,0 +1,21 @@
+DirectoryIndex login.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect direct .php requests to extensionless URLs for normal page GETs only.
+  # Skip process endpoints so AJAX/form POST requests keep method and body intact.
+  RewriteCond %{REQUEST_METHOD} =GET
+  RewriteCond %{REQUEST_URI} !^/admin/processes/ [NC]
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+  RewriteRule ^ %1 [R=301,L,NE]
+
+  # Keep existing files/folders (assets, images, js, css, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Map extensionless admin URLs to their .php counterparts
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^(.+)$ $1.php [L,QSA]
+</IfModule>

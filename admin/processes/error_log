@@ -1,0 +1,15 @@
+[14-Mar-2025 07:41:37 UTC] PHP Warning:  rmdir(../img/cars/46): No such file or directory in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 07:41:39 UTC] PHP Warning:  rmdir(../img/cars/45): No such file or directory in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 07:41:41 UTC] PHP Warning:  rmdir(../img/cars/44): No such file or directory in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 12:11:27 UTC] PHP Warning:  rmdir(../img/cars/49): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 12:11:28 UTC] PHP Warning:  rmdir(../img/cars/48): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 12:11:29 UTC] PHP Warning:  rmdir(../img/cars/47): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 13:55:03 UTC] PHP Warning:  rmdir(../img/cars/62): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 13:55:04 UTC] PHP Warning:  rmdir(../img/cars/61): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 13:55:06 UTC] PHP Warning:  rmdir(../img/cars/60): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[14-Mar-2025 13:55:10 UTC] PHP Warning:  rmdir(../img/cars/59): Directory not empty in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/images_class.php on line 68
+[22-Mar-2025 16:59:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/cars_class.php:160
+Stack trace:
+#0 /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/processes/process_car.php(39): Car->update()
+#1 {main}
+  thrown in /home/sbautov4u8m9/public_html/NiceAdmin/NiceAdmin/assets/classes/cars_class.php on line 160

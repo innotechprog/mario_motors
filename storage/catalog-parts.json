@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Brembo GT Brake Kit",
+        "price": "R 44 900",
+        "category": "Brakes",
+        "brand": "Brembo",
+        "year": 2023,
+        "image": "part-1.png",
+        "compatibility": "BMW 3 Series, 4 Series, M3, M4",
+        "description": "The Brembo GT Brake Kit features 6-piston calipers with cross-drilled rotors for maximum stopping power. Designed for high-performance driving, this kit reduces brake fade during spirited driving and track days."
+    },
+    {
+        "id": 2,
+        "name": "K&N Cold Air Intake",
+        "price": "R 6 490",
+        "category": "Engine",
+        "brand": "K&N",
+        "year": 2024,
+        "image": "part-2.png",
+        "compatibility": "Ford Mustang GT 2018-2024",
+        "description": "The K&N Cold Air Intake system delivers increased horsepower and acceleration by reducing air intake restriction. Dyno-tested to add up to 18 HP."
+    },
+    {
+        "id": 3,
+        "name": "Philips X-tremeVision LED H7",
+        "price": "R 1 590",
+        "category": "Lighting",
+        "brand": "Philips",
+        "year": 2024,
+        "image": "part-3.png",
+        "compatibility": "Universal H7 Socket",
+        "description": "Philips X-tremeVision LED headlight bulbs deliver up to 200% brighter light compared to standard halogen bulbs with a 6500K color temperature."
+    },
+    {
+        "id": 4,
+        "name": "Borla ATAK Cat-Back Exhaust",
+        "price": "R 34 900",
+        "category": "Exhaust",
+        "brand": "Borla",
+        "year": 2024,
+        "image": "part-4.png",
+        "compatibility": "Chevrolet Camaro SS 2016-2024",
+        "description": "The Borla ATAK Cat-Back Exhaust system delivers an aggressive exhaust note. Constructed from T-304 stainless steel with polished tips. Lifetime warranty included."
+    },
+    {
+        "id": 5,
+        "name": "BBS CH-R Wheel Set 19\"",
+        "price": "R 58 900",
+        "category": "Wheels",
+        "brand": "BBS",
+        "year": 2024,
+        "image": "part-5.png",
+        "compatibility": "5x112 Bolt Pattern (Audi, VW, Mercedes)",
+        "description": "The BBS CH-R wheels combine lightweight flow-formed aluminum construction with iconic motorsport-inspired design. Set of 4 in 19x8.5 satin black."
+    },
+    {
+        "id": 6,
+        "name": "KW V3 Coilover Kit",
+        "price": "R 38 900",
+        "category": "Suspension",
+        "brand": "KW",
+        "year": 2023,
+        "image": "part-6.png",
+        "compatibility": "BMW F30/F32 3 & 4 Series",
+        "description": "The KW V3 Coilover Kit features independently adjustable rebound and compression damping. Stainless steel construction ensures corrosion resistance."
+    },
+    {
+        "id": 7,
+        "name": "Bosch Premium Oil Filter",
+        "price": "R 189",
+        "category": "Engine",
+        "brand": "Bosch",
+        "year": 2024,
+        "image": "part-7.png",
+        "compatibility": "Universal - Toyota, Honda, Nissan",
+        "description": "Bosch Premium Oil Filters feature a blend of natural and synthetic media for superior filtration. Silicone anti-drainback valve prevents dry starts."
+    },
+    {
+        "id": 8,
+        "name": "NGK Iridium IX Spark Plugs (6x)",
+        "price": "R 1 290",
+        "category": "Engine",
+        "brand": "NGK",
+        "year": 2024,
+        "image": "part-8.png",
+        "compatibility": "Universal - Most 6-Cylinder Engines",
+        "description": "NGK Iridium IX Spark Plugs feature an ultra-fine 0.6mm iridium tip for superior ignitability and longevity. Set of 6."
+    }
+]
