@@ -5,6 +5,20 @@ const errorMessageDiv = document.getElementById('error-message');
 const forgotPasswordForm = document.getElementById('forgotPasswordForm');
 const resetMessageDiv = document.getElementById('reset-message');
 
+async function parseJsonSafe(response) {
+  const text = await response.text();
+  if (!text || !text.trim()) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    console.error('Invalid JSON response:', text);
+    return null;
+  }
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent default form submission
 
@@ -37,7 +51,13 @@ form.addEventListener('submit', async (e) => {
       body: formData
     });
 
-    const data = await response.json();
+    const data = await parseJsonSafe(response);
+
+    if (!data) {
+      errorMessageDiv.classList.remove('d-none');
+      errorMessageDiv.textContent = 'Server returned an invalid response. Please try again.';
+      return;
+    }
 
     if (data.status === 'success') {
       // Redirect if login is successful
@@ -96,7 +116,14 @@ if (forgotPasswordForm) {
         body: formData
       });
 
-      const data = await response.json();
+      const data = await parseJsonSafe(response);
+      if (!data) {
+        resetMessageDiv.classList.remove('d-none');
+        resetMessageDiv.classList.add('alert-danger');
+        resetMessageDiv.textContent = 'Server returned an invalid response. Please try again.';
+        return;
+      }
+
       resetMessageDiv.classList.remove('d-none');
 
       if (data.status === 'success') {

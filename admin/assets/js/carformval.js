@@ -1433,7 +1433,7 @@ function submitForm(compressedFiles) {
                     displayImages();
 
                     setTimeout(() => {
-                        window.location.href = 'cars.php';
+                        window.location.href = 'cars';
                     }, 3000);
                 } else {
                     message.style.display = 'block';

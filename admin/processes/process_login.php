@@ -17,33 +17,46 @@ ob_clean();
 // Set JSON header
 header('Content-Type: application/json');
 
+function json_response(array $payload, int $statusCode = 200): void {
+    http_response_code($statusCode);
+    echo json_encode($payload);
+    exit;
+}
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the form data
-    $email = trim($_POST['email'] ?? '');
-    $password = trim($_POST['password'] ?? '');
+    try {
+        // Get the form data
+        $email = trim($_POST['email'] ?? '');
+        $password = trim($_POST['password'] ?? '');
 
-    // Validate input fields
-    if (empty($email) || empty($password)) {
-        // Return error if fields are empty
-        echo json_encode(['status' => 'error', 'message' => 'Please fill in all fields.']);
-        exit; // Stop further execution
-    }
+        // Validate input fields
+        if (empty($email) || empty($password)) {
+            json_response(['status' => 'error', 'message' => 'Please fill in all fields.']);
+        }
 
-    // Attempt to log in
-    $loggedInUser = $user->loginByEmail($email, $password);
+        if (! $db) {
+            json_response(['status' => 'error', 'message' => 'Database connection failed. Please try again later.'], 500);
+        }
 
-    if ($loggedInUser) {
-        // Successful login
-        $auth->login($loggedInUser['user_id'], $loggedInUser['username'], $loggedInUser['role']);
-        echo json_encode(['status' => 'success', 'redirect' => 'user-profile']);
-    } else {
+        // Attempt to log in
+        $loggedInUser = $user->loginByEmail($email, $password);
+
+        if ($loggedInUser) {
+            // Successful login
+            $auth->login($loggedInUser['user_id'], $loggedInUser['username'], $loggedInUser['role']);
+            json_response(['status' => 'success', 'redirect' => 'user-profile']);
+        }
+
         // Login failed
-        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password.']);
+        json_response(['status' => 'error', 'message' => 'Invalid email or password.']);
+    } catch (Throwable $e) {
+        error_log('Login error: ' . $e->getMessage());
+        json_response(['status' => 'error', 'message' => 'Unable to process login right now. Please try again later.'], 500);
     }
 } else {
     // Invalid request method
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
+    json_response(['status' => 'error', 'message' => 'Invalid request method.'], 405);
 }
 
 // End output buffering and flush

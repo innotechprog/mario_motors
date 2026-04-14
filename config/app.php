@@ -19,6 +19,66 @@ return [
     'app_title_suffix' => 'Mario Motors & Spare Parts',
     'app_email' => 'info@mariomotorspares.co.za',
 
+    /**
+     * SMTP settings for PHPMailer (used by contact form).
+     * Prefer environment variables on production servers.
+     */
+    'smtp_host' => getenv('SMTP_HOST') ?: 'mail.mariomotorspares.co.za',
+    'smtp_port' => (int) (getenv('SMTP_PORT') ?: 587),
+    'smtp_username' => getenv('SMTP_USERNAME') ?: 'noreply@mariomotorspares.co.za',
+    'smtp_password' => getenv('SMTP_PASSWORD') ?: 'aKaRmaZMhb2PvCJWN2sz',
+    'smtp_encryption' => getenv('SMTP_ENCRYPTION') ?: 'tls', // tls|ssl|none
+    'smtp_from_email' => getenv('SMTP_FROM_EMAIL') ?: 'noreply@mariomotorspares.co.za',
+    'smtp_from_name' => getenv('SMTP_FROM_NAME') ?: 'Mario Motors Website',
+
+    /**
+     * Contact form advertiser/spam filter phrases.
+     * If a message matches these patterns, submission is silently ignored.
+     *
+     * @var list<string>
+     */
+    'contact_block_keywords' => [
+        'seo services',
+        'digital marketing',
+        'google ranking',
+        'backlink',
+        'guest post',
+        'sponsored post',
+        'paid promotion',
+        'lead generation',
+        'social media management',
+        'facebook ads',
+        'marketing agency',
+        'increase your traffic',
+        'increase website traffic',
+        'website design services',
+        'we can promote your business',
+    ],
+
+    /**
+     * Contact form allowlist phrases for genuine customer intent.
+     * If these phrases are present, submissions are not blocked by ad filter.
+     *
+     * @var list<string>
+     */
+    'contact_allow_keywords' => [
+        'price',
+        'quote',
+        'part',
+        'spare',
+        'availability',
+        'car',
+        'vehicle',
+        'battery',
+        'engine',
+        'brakes',
+        'suspension',
+        'order',
+        'stock',
+        'vin',
+        'mm code',
+    ],
+
     'base_url' => null,
 
     /**

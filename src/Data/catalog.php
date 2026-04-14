@@ -113,24 +113,26 @@ function catalog_db(): ?PDO
         return $GLOBALS['CATALOG_DB'];
     }
 
-    $host = getenv('DB_HOST') ?: 'localhost';
-    $name = getenv('DB_NAME') ?: 'mario_motors_db';
-    $user = getenv('DB_USER') ?: 'root';
-    $pass = getenv('DB_PASS');
-    if ($pass === false) {
-        $pass = '';
+    $dbClassPath = dirname(__DIR__, 2) . '/admin/assets/classes/connect_db_class.php';
+    if (!is_file($dbClassPath)) {
+        return null;
+    }
+
+    require_once $dbClassPath;
+
+    if (!class_exists('Database')) {
+        return null;
     }
 
     try {
-        $pdo = new PDO(
-            'mysql:host=' . $host . ';dbname=' . $name . ';charset=utf8mb4',
-            $user,
-            $pass,
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            ]
-        );
+        $database = new Database();
+        $pdo = $database->connect();
+        if (!($pdo instanceof PDO)) {
+            return null;
+        }
+
+        // Keep fetch behavior consistent for catalog read queries.
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $GLOBALS['CATALOG_DB'] = $pdo;
 
         return $pdo;

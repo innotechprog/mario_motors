@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 /** @var bool $sent */
+/** @var bool $failed */
 /** @var list<array<string, mixed>> $info */
 ?>
 <div class="min-h-screen bg-background flex flex-col">
@@ -19,8 +20,19 @@ declare(strict_types=1);
       </div>
     <?php endif; ?>
 
+    <?php if ($failed): ?>
+      <div class="mb-8 rounded-md border border-red-500/40 bg-card px-4 py-3 text-foreground" role="status">
+        <strong class="font-heading uppercase tracking-wider text-red-400">Message not sent</strong>
+        <p class="text-muted-foreground text-sm mt-1">Please check your details and try again. If the issue continues, contact us by phone or WhatsApp.</p>
+      </div>
+    <?php endif; ?>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <form method="post" action="contact" class="space-y-5">
+        <div class="sr-only" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <input name="name" required placeholder="Your Name"
           class="w-full h-12 px-4 rounded-md border border-border bg-card text-foreground placeholder:text-muted-foreground">
         <input type="email" name="email" required placeholder="Email Address"

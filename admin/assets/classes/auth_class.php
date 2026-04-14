@@ -47,7 +47,7 @@ class Auth {
     public function logout() {
         session_unset(); // Unset all session variables
         session_destroy(); // Destroy the session
-        $this->redirect('login.php'); // Redirect to the login page
+        $this->redirect('login'); // Redirect to the login page
     }
 
     /**
@@ -55,7 +55,7 @@ class Auth {
      */
     public function requireLogin() {
         if (!$this->isLoggedIn()) {
-            $this->redirect('login.php');
+            $this->redirect('login');
         }
     }
 
@@ -65,7 +65,7 @@ class Auth {
     public function requireRole($role) {
         $this->requireLogin(); // Ensure the user is logged in
         if (!$this->hasRole($role)) {
-            $this->redirect('unauthorized.php');
+            $this->redirect('unauthorized');
         }
     }
 }

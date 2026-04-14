@@ -82,35 +82,11 @@
     </div>
 
     <div class="col-12 text-center">
-        <button class="btn btn-link p-0" type="button" data-bs-toggle="collapse" data-bs-target="#forgotPasswordPanel" aria-expanded="false" aria-controls="forgotPasswordPanel">
-          Forgot Password?
-        </button>
+        
     </div>
 </form>
 
-<div class="collapse mt-3" id="forgotPasswordPanel">
-  <div id="reset-message" class="alert d-none" role="alert"></div>
-  <form id="forgotPasswordForm" class="row g-3" action="processes/process_forgot_password.php" method="post">
-    <div class="col-12">
-      <label for="resetEmail" class="form-label">Email Address</label>
-      <input type="email" name="email" class="form-control" id="resetEmail" required>
-    </div>
 
-    <div class="col-12">
-      <label for="resetNewPassword" class="form-label">New Password</label>
-      <input type="password" name="new_password" class="form-control" id="resetNewPassword" minlength="8" required>
-    </div>
-
-    <div class="col-12">
-      <label for="resetConfirmPassword" class="form-label">Confirm New Password</label>
-      <input type="password" name="confirm_new_password" class="form-control" id="resetConfirmPassword" minlength="8" required>
-    </div>
-
-    <div class="col-12">
-      <button class="btn btn-outline-primary w-100" type="submit">Reset Password</button>
-    </div>
-  </form>
-</div>
                 </div>
               </div>   
 

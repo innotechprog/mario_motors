@@ -92,9 +92,9 @@ function submitForm(compressedFiles) {
                 // Clear form fields
                 form.reset();
 
-                // Redirect to cars.php after 3 seconds
+                // Redirect to cars page after 3 seconds
                 setTimeout(() => {
-                    window.location.href = 'cars.php';
+                    window.location.href = 'cars';
                 }, 3000);
             } else {
                 // Show error message
