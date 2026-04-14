@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * @return array{
  *   search: string,
- *   activeCategory: string|null,
+ *   activeMake: string|null,
  *   activeMinYear: int|null,
  *   activeMaxYear: int|null,
  *   activeMinPrice: int|null,
@@ -20,7 +20,7 @@ declare(strict_types=1);
 function cars_listing_from_get(array $get): array
 {
     $search = isset($get['q']) ? trim((string) $get['q']) : '';
-    $activeCategory = isset($get['type']) && $get['type'] !== '' ? (string) $get['type'] : null;
+    $activeMake = isset($get['make']) && $get['make'] !== '' ? (string) $get['make'] : null;
     $activeMinYear = isset($get['min_year']) && $get['min_year'] !== '' ? (int) $get['min_year'] : null;
     $activeMaxYear = isset($get['max_year']) && $get['max_year'] !== '' ? (int) $get['max_year'] : null;
     $activeMinPrice = isset($get['min_price']) && $get['min_price'] !== '' ? (int) $get['min_price'] : null;
@@ -33,14 +33,14 @@ function cars_listing_from_get(array $get): array
         [$activeMinPrice, $activeMaxPrice] = [$activeMaxPrice, $activeMinPrice];
     }
 
-    $filtered = array_filter($GLOBALS['cars'], static function (array $c) use ($search, $activeCategory, $activeMinYear, $activeMaxYear, $activeMinPrice, $activeMaxPrice): bool {
+    $filtered = array_filter($GLOBALS['cars'], static function (array $c) use ($search, $activeMake, $activeMinYear, $activeMaxYear, $activeMinPrice, $activeMaxPrice): bool {
         $q = strtolower($search);
         $matchesSearch = $search === ''
             || str_contains(strtolower($c['name']), $q)
             || str_contains(strtolower($c['brand']), $q)
             || str_contains(strtolower($c['model']), $q)
             || str_contains((string) $c['year'], $search);
-        $matchesCategory = $activeCategory === null || $c['category'] === $activeCategory;
+        $matchesMake = $activeMake === null || $c['brand'] === $activeMake;
         $year = isset($c['year']) ? (int) $c['year'] : null;
         $matchesMinYear = $activeMinYear === null || ($year !== null && $year >= $activeMinYear);
         $matchesMaxYear = $activeMaxYear === null || ($year !== null && $year <= $activeMaxYear);
@@ -51,7 +51,7 @@ function cars_listing_from_get(array $get): array
         $matchesMinPrice = $activeMinPrice === null || ($price !== null && $price >= $activeMinPrice);
         $matchesMaxPrice = $activeMaxPrice === null || ($price !== null && $price <= $activeMaxPrice);
 
-        return $matchesSearch && $matchesCategory && $matchesMinYear && $matchesMaxYear && $matchesMinPrice && $matchesMaxPrice;
+        return $matchesSearch && $matchesMake && $matchesMinYear && $matchesMaxYear && $matchesMinPrice && $matchesMaxPrice;
     });
 
     $filtered = array_values($filtered);
@@ -68,7 +68,7 @@ function cars_listing_from_get(array $get): array
 
     return [
         'search' => $search,
-        'activeCategory' => $activeCategory,
+        'activeMake' => $activeMake,
         'activeMinYear' => $activeMinYear,
         'activeMaxYear' => $activeMaxYear,
         'activeMinPrice' => $activeMinPrice,
@@ -85,7 +85,7 @@ function cars_query_href(array $overrides, array $get): string
 {
     $base = [
         'q' => $get['q'] ?? '',
-        'type' => $get['type'] ?? '',
+        'make' => $get['make'] ?? '',
         'min_year' => $get['min_year'] ?? '',
         'max_year' => $get['max_year'] ?? '',
         'min_price' => $get['min_price'] ?? '',

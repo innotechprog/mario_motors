@@ -483,9 +483,12 @@ function hero_image_url(): string
 /** @return list<string> */
 function car_brands(): array
 {
-    $brands = array_map(static fn (array $c): string => $c['brand'], $GLOBALS['cars']);
+    $brands = array_map(static fn (array $c): string => trim((string) ($c['brand'] ?? '')), $GLOBALS['cars']);
+    $brands = array_values(array_filter($brands, static fn (string $b): bool => $b !== ''));
+    $brands = array_values(array_unique($brands));
+    natcasesort($brands);
 
-    return array_values(array_unique($brands));
+    return array_values($brands);
 }
 
 /** @return list<string> */

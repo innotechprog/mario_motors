@@ -8,6 +8,7 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $part = find_part($id);
 
 if ($part === null) {
+    http_response_code(404);
     $pageTitle = 'Part Not Found';
     $currentNav = 'parts';
     layout_start(compact('pageTitle', 'currentNav'));

@@ -8,6 +8,7 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $car = find_car($id);
 
 if ($car === null) {
+    http_response_code(404);
     $pageTitle = 'Car Not Found';
     $currentNav = 'cars';
     layout_start(compact('pageTitle', 'currentNav'));

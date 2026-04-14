@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /** @var string $search */
-/** @var string|null $activeCategory */
+/** @var string|null $activeMake */
 /** @var int|null $activeMinYear */
 /** @var int|null $activeMaxYear */
 /** @var int|null $activeMinPrice */
@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** @var int $totalItems */
 
 $total = $totalItems;
-$hasFilters = $search !== '' || $activeCategory || $activeMinYear || $activeMaxYear || $activeMinPrice || $activeMaxPrice;
+$hasFilters = $search !== '' || $activeMake || $activeMinYear || $activeMaxYear || $activeMinPrice || $activeMaxPrice;
 $yearOptions = car_years();
 $priceOptions = car_price_values();
 ?>
@@ -28,7 +28,7 @@ $priceOptions = car_price_values();
             Browse <span class="text-primary">cars</span>
           </h1>
           <p class="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
-            Used vehicles in Pretoria — filter by brand, body type, or year, or search by model.
+            Used vehicles in Pretoria — filter by make, year, or price, or search by model.
           </p>
         </div>
         <div class="shrink-0 rounded-xl border border-border bg-card/80 px-4 py-3 text-center shadow-sm backdrop-blur-sm md:text-right">
@@ -58,7 +58,7 @@ $priceOptions = car_price_values();
               placeholder="Search brand, model, or year…"
               class="h-12 w-full rounded-xl border-2 border-border bg-background pl-12 pr-4 text-foreground shadow-inner placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 sm:h-14 sm:text-base"
             >
-            <?php if ($activeCategory): ?><input type="hidden" name="type" value="<?= esc($activeCategory) ?>"><?php endif; ?>
+            <?php if ($activeMake): ?><input type="hidden" name="make" value="<?= esc($activeMake) ?>"><?php endif; ?>
             <?php if ($activeMinYear): ?><input type="hidden" name="min_year" value="<?= esc((string) $activeMinYear) ?>"><?php endif; ?>
             <?php if ($activeMaxYear): ?><input type="hidden" name="max_year" value="<?= esc((string) $activeMaxYear) ?>"><?php endif; ?>
             <?php if ($activeMinPrice): ?><input type="hidden" name="min_price" value="<?= esc((string) $activeMinPrice) ?>"><?php endif; ?>
@@ -71,11 +71,11 @@ $priceOptions = car_price_values();
       </form>
 
       <div class="mb-8">
-        <p class="mb-3 font-heading text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Categories</p>
+        <p class="mb-3 font-heading text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Car Make</p>
         <div class="flex flex-wrap gap-2">
-          <?php foreach (car_categories() as $c):
-              $on = $activeCategory === $c;
-              $href = cars_query_href(['type' => $on ? '' : $c], $queryGet);
+          <?php foreach (car_brands() as $c):
+              $on = $activeMake === $c;
+              $href = cars_query_href(['make' => $on ? '' : $c], $queryGet);
               ?>
             <a
               href="<?= esc($href) ?>"
@@ -93,7 +93,7 @@ $priceOptions = car_price_values();
 
         <form method="get" action="cars">
           <input type="hidden" name="q" value="<?= esc($search) ?>">
-          <?php if ($activeCategory): ?><input type="hidden" name="type" value="<?= esc($activeCategory) ?>"><?php endif; ?>
+          <?php if ($activeMake): ?><input type="hidden" name="make" value="<?= esc($activeMake) ?>"><?php endif; ?>
 
           <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div class="min-w-0">

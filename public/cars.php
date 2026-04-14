@@ -7,14 +7,23 @@ require dirname(__DIR__) . '/bootstrap/app.php';
 $normalized = $_GET;
 $needsRedirect = false;
 
-if (isset($normalized['cat']) && ! isset($normalized['type']) && trim((string) $normalized['cat']) !== '') {
-	$normalized['type'] = trim((string) $normalized['cat']);
+if (isset($normalized['cat']) && ! isset($normalized['make']) && trim((string) $normalized['cat']) !== '') {
+	$normalized['make'] = trim((string) $normalized['cat']);
 	unset($normalized['cat']);
 	$needsRedirect = true;
 }
 
-if (isset($normalized['type']) && trim((string) $normalized['type']) === '') {
+if (isset($normalized['type'])) {
+	$type = trim((string) $normalized['type']);
+	if ($type !== '' && ! isset($normalized['make'])) {
+		$normalized['make'] = $type;
+	}
 	unset($normalized['type']);
+	$needsRedirect = true;
+}
+
+if (isset($normalized['make']) && trim((string) $normalized['make']) === '') {
+	unset($normalized['make']);
 	$needsRedirect = true;
 }
 
