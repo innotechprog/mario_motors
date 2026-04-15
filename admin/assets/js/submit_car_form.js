@@ -94,7 +94,10 @@ function submitForm(compressedFiles) {
 
                 // Redirect to cars page after 3 seconds
                 setTimeout(() => {
-                    window.location.href = 'cars';
+                    const pathname = window.location.pathname;
+                    const adminIndex = pathname.toLowerCase().indexOf('/admin/');
+                    const appBase = adminIndex >= 0 ? pathname.slice(0, adminIndex) : '';
+                    window.location.href = `${window.location.origin}${appBase}/admin/cars`;
                 }, 3000);
             } else {
                 // Show error message

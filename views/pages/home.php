@@ -214,11 +214,80 @@ $waUrl = $wa !== '' ? 'https://wa.me/' . preg_replace('/\D/', '', $wa) : '';
         About <span class="text-primary"><?= esc((string) config('app_name')) ?></span>
       </h2>
       <p class="text-muted-foreground text-lg leading-relaxed mb-6">
-        Founded in 2010, <?= esc((string) config('app_name')) ?> is your local partner in Mayville, Pretoria: we buy and sell used cars, stock spare parts, and supply new and used batteries — alongside genuine parts and friendly service.
+        We opened in 2021 with the aim of bringing trusted automotive servicing and repairs to local car owners at an affordable price and with a personal touch. At <?= esc((string) config('app_name')) ?>, we also buy and sell used cars, stock quality spare parts, and supply new and used batteries.
       </p>
       <p class="text-muted-foreground text-lg leading-relaxed">
-        Our team hand-selects vehicles, sources quality spares, and helps you find the right battery for your budget. Whether you're selling a car, buying your next ride, or keeping your vehicle on the road, <?= esc((string) config('app_name')) ?> has you covered.
+        Thanks to our reputation and focus on quality, people from across the area rely on our services to keep their vehicles in the best shape possible. Whether you are selling a car, buying your next ride, or maintaining your current vehicle, our team is here to help.
       </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-card py-16 sm:py-20" aria-labelledby="sales-team-heading">
+    <div class="mx-auto max-w-[1400px] px-4">
+      <div class="mb-8 text-center sm:mb-10" data-reveal>
+        <h2 id="sales-team-heading" class="font-heading text-3xl font-bold uppercase tracking-wider text-foreground md:text-4xl">
+          Sales <span class="text-primary">Team</span>
+        </h2>
+        <p class="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">
+          Contact our sales team directly for available cars, pricing, and quick assistance.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-stretch justify-center gap-4 sm:gap-5 md:gap-6" data-reveal-stagger>
+        <article class="shrink-0 rounded-xl border border-border bg-background p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg" style="width: 17rem; max-width: 100%;">
+          <img
+            src="https://ui-avatars.com/api/?name=Ian&background=CBD5E1&color=1F2937&size=256"
+            alt="Ian profile photo"
+            class="mx-auto h-28 w-28 rounded-full object-cover object-center"
+            width="112"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          >
+          <h3 class="mt-4 font-heading text-xl font-semibold text-foreground">Ian</h3>
+          <p class="text-sm text-muted-foreground">Sales Person</p>
+          <p class="mt-3 text-sm font-medium text-foreground">+27 74 297 5083</p>
+          <a href="https://wa.me/27742975083?text=Hi%20Ian%2C%20I%27m%20interested%20in%20a%20car." class="mt-4 inline-flex min-h-10 items-center justify-center rounded-md bg-primary px-5 py-2 font-heading text-sm font-semibold tracking-wide text-primary-foreground transition-opacity hover:opacity-90" target="_blank" rel="noopener noreferrer">
+            WhatsApp me
+          </a>
+        </article>
+
+        <article class="shrink-0 rounded-xl border border-border bg-background p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg" style="width: 17rem; max-width: 100%;">
+          <img
+            src="https://ui-avatars.com/api/?name=Larry&background=DBEAFE&color=1E3A8A&size=256"
+            alt="Larry profile photo"
+            class="mx-auto h-28 w-28 rounded-full object-cover object-center"
+            width="112"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          >
+          <h3 class="mt-4 font-heading text-xl font-semibold text-foreground">Larry</h3>
+          <p class="text-sm text-muted-foreground">Sales Person</p>
+          <p class="mt-3 text-sm font-medium text-foreground">+27 61 110 1209</p>
+          <a href="https://wa.me/27611101209?text=Hi%20Larry%2C%20I%27m%20interested%20in%20a%20car." class="mt-4 inline-flex min-h-10 items-center justify-center rounded-md bg-primary px-5 py-2 font-heading text-sm font-semibold tracking-wide text-primary-foreground transition-opacity hover:opacity-90" target="_blank" rel="noopener noreferrer">
+            WhatsApp me
+          </a>
+        </article>
+
+        <article class="shrink-0 rounded-xl border border-border bg-background p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg" style="width: 17rem; max-width: 100%;">
+          <img
+            src="https://ui-avatars.com/api/?name=Thomas&background=E0F2FE&color=0C4A6E&size=256"
+            alt="Thomas profile photo"
+            class="mx-auto h-28 w-28 rounded-full object-cover object-center"
+            width="112"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          >
+          <h3 class="mt-4 font-heading text-xl font-semibold text-foreground">Thomas</h3>
+          <p class="text-sm text-muted-foreground">Sales Person</p>
+          <p class="mt-3 text-sm font-medium text-foreground">0623974149</p>
+          <a href="https://wa.me/27623974149?text=Hi%20Thomas%2C%20I%27m%20interested%20in%20a%20car." class="mt-4 inline-flex min-h-10 items-center justify-center rounded-md bg-primary px-5 py-2 font-heading text-sm font-semibold tracking-wide text-primary-foreground transition-opacity hover:opacity-90" target="_blank" rel="noopener noreferrer">
+            WhatsApp me
+          </a>
+        </article>
+      </div>
     </div>
   </section>
 

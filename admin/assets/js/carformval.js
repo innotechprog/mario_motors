@@ -1433,7 +1433,10 @@ function submitForm(compressedFiles) {
                     displayImages();
 
                     setTimeout(() => {
-                        window.location.href = 'cars';
+                        const pathname = window.location.pathname;
+                        const adminIndex = pathname.toLowerCase().indexOf('/admin/');
+                        const appBase = adminIndex >= 0 ? pathname.slice(0, adminIndex) : '';
+                        window.location.href = `${window.location.origin}${appBase}/admin/cars`;
                     }, 3000);
                 } else {
                     message.style.display = 'block';

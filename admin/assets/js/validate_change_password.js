@@ -52,7 +52,10 @@ $(document).ready(function() {
                     
                     // Redirect after 3 seconds
                     setTimeout(function() {
-                        window.location.href = "user-profile.php"; // Change to the correct redirect path
+                        const pathname = window.location.pathname;
+                        const adminIndex = pathname.toLowerCase().indexOf('/admin/');
+                        const appBase = adminIndex >= 0 ? pathname.slice(0, adminIndex) : '';
+                        window.location.href = `${window.location.origin}${appBase}/admin/user-profile`;
                     }, 3000);
                 } else {
                     let errorMsg = response && response.message ? response.message : "An unexpected error occurred.";
